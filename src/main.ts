@@ -24,6 +24,7 @@ async function run() {
       require("@octokit/plugin-retry")
     ]);
     const gh = new GitHub(config.github_token, {
+      log: console,
       throttle: {
         onRateLimit: (retryAfter, options) => {
           console.warn(
